@@ -9,11 +9,7 @@ Um sistema de gerenciamento escolar backend baseado em microserviços, desenvolv
 Este projeto segue o padrão de microserviços. Cada serviço é responsável por uma área específica da aplicação, o que facilita manutenção, escalabilidade e evolução.
 
 - `academic-service` - serviço atual responsável por gerenciamento acadêmico
-- `enrollment-service` - serviço planejado para matrículas
-- `classroom-service` - serviço planejado para gestão de turmas
-- outros serviços relacionados podem ser adicionados no futuro
 
----
 
 ## Tecnologias Utilizadas
 
