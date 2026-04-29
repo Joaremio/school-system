@@ -19,8 +19,6 @@ Este projeto segue o padrão de microserviços. Cada serviço é responsável po
 - APIs REST
 - Swagger / OpenAPI (para documentação de API)
 
-> Observação: Docker pode ser integrado futuramente para containerização dos microserviços.
-
 ---
 
 ## Estrutura do Projeto
@@ -36,9 +34,6 @@ school-system/
 │   │   │   ├── java/
 │   │   │   └── resources/
 │   │   └── test/
-│   └── README.md
-├── enrollment-service/   # futuro microserviço
-├── classroom-service/   # futuro microserviço
 └── README.md
 ```
 
@@ -96,16 +91,11 @@ Possíveis evoluções para o projeto:
 
 - Adicionar novos microserviços para separar responsabilidades
 - Implementar autenticação e autorização
-- Integrar com Docker e Docker Compose
-- Adicionar testes automatizados mais abrangentes
 - Configurar CI/CD para deploy contínuo
 
 ---
 
 ## Autor
 
-Projeto criado para fins de aprendizado, portfólio e demonstração.
-
-- Nome: [Seu Nome]
-- Repositório: `school-system`
-- Contato: `seu-email@dominio.com`
+- Nome: Joaremio Neto
+- Contato: `joaremiorevoredo@gmail.com`
