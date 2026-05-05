@@ -7,16 +7,23 @@ spring:
 
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
+      routes:
+        - id: academic-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/students/**
 
-            - id: academic-service
-              uri: http://localhost:8081
-              predicates:
-                - Path=/api/students/**
+        - id: academic-service-classroom
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/classroom/**
 
-            - id: payment-service
-              uri: http://localhost:8082
-              predicates:
-                - Path=/api/tuitions/**
+        - id: payment-service-tuitions
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/tuitions/**
+
+        - id: payment-service-payments
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/payments/**
