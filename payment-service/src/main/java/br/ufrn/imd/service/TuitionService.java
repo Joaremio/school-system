@@ -31,15 +31,14 @@ public class TuitionService {
 
         if(exists){return;}
 
-        Tuition tuition = Tuition.builder()
-                .studentId(student.id())
-                .studentName(student.name())
-                .totalAmount(new BigDecimal("50"))
-                .paidAmount(BigDecimal.ZERO)
-                .status(TuitionStatus.PENDENTE)
-                .dueDate(LocalDate.now().withDayOfMonth(10))
-                .referenceMonth(referenceMonth)
-                .build();
+        Tuition tuition = new Tuition();
+        tuition.setStudentId(student.id());
+        tuition.setStudentName(student.name());
+        tuition.setTotalAmount(new BigDecimal("50"));
+        tuition.setPaidAmount(BigDecimal.ZERO);
+        tuition.setStatus(TuitionStatus.PENDENTE);
+        tuition.setDueDate(LocalDate.now().withDayOfMonth(10));
+        tuition.setReferenceMonth(referenceMonth);
 
         tuitionRepository.save(tuition);
     }

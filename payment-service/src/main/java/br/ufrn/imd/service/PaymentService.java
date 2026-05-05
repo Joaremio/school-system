@@ -36,10 +36,11 @@ public class PaymentService {
 
         BigDecimal newTotalPaid = currentPaid.add(data.amount());
 
-
         if (newTotalPaid.compareTo(tuition.getTotalAmount()) > 0) {
             throw new RuntimeException("Payment exceeds tuition amount");
         }
+
+        tuition.setPaidAmount(newTotalPaid);
 
         Payment payment = new Payment();
         payment.setAmount(data.amount());
@@ -49,12 +50,9 @@ public class PaymentService {
 
         Payment newPayment = paymentRepository.save(payment);
 
-        tuition.setPaidAmount(newTotalPaid);
-
-        boolean totalPayment = newPayment.getAmount().equals(tuition.getTotalAmount());
+        boolean totalPayment = newTotalPaid.compareTo(tuition.getTotalAmount()) == 0;
 
         if(!totalPayment){
-            tuition.setPaidAmount(newPayment.getAmount());
             tuition.setStatus(TuitionStatus.PARCIAL);
         }else{
             tuition.setStatus(TuitionStatus.PAGO);

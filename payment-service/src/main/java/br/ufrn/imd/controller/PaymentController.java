@@ -5,10 +5,7 @@ import br.ufrn.imd.dto.PaymentRequest;
 import br.ufrn.imd.dto.PaymentResponse;
 import br.ufrn.imd.service.PaymentService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/payments")
@@ -20,7 +17,7 @@ public class PaymentController {
     }
 
     @PostMapping("/{tuitionId}")
-    public ResponseEntity<PaymentResponse> createPayment(@PathVariable Long tuitionId, PaymentRequest data){
+    public ResponseEntity<PaymentResponse> createPayment(@PathVariable Long tuitionId, @RequestBody PaymentRequest data){
         return ResponseEntity.ok(paymentService.createPayment(tuitionId, data));
     }
 }
